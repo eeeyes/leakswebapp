@@ -1,15 +1,10 @@
 
-
-
-
-
-
 var buildNav = function() {
 
 	var ulElement = $('<ul/>');
 	var ulItems = [
-		{name:'Issues',event:'nav:issues'},
-		{name:'Dashboard',event:'nav:dashboard'}
+		{name:'Issues',event:'issues'},
+		{name:'Dashboard',event:'dashboard'}
 		];
 	
 	$.each(ulItems,function(idx,value){
@@ -21,9 +16,7 @@ var buildNav = function() {
 			var value =event.data;
 			var name = value.name;
 			var eventName = value.event;
-			console.log(value);
-			console.log('trigging '+eventName);
-			$('body').trigger(eventName);
+			$('body').trigger('nav',[eventName]);
 		});
 		
 		liElement.appendTo(ulElement);
