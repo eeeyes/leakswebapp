@@ -18,12 +18,19 @@ var buildIssueList = function(){
 	issueListElement.css('position','absolute');
 	
 	for(var i = 0 ; i < 1000 ; i++){
-		var issueItem = $('<p/>',{html:'issue item '+i});
-		issueListElement.append(issueItem);
+		
+		(function(){
+			var issueItem = $('<p/>',{html:'issue item '+i});
+			issueListElement.append(issueItem);
+			issueItem.on('click',function(){
+				$('issues issues_right_panel').html(issueItem.html());
+			});
+		})();
+		
 	}
 	
 	
-	
+	$('issues issues_right_panel').html('issue item 0 selected');
 	issueListElement.css('top',0);
 	$('issues issues_left_panel').append(issueListElement);
 }
@@ -44,6 +51,16 @@ var buildIssues = function(){
 	leftPanelElement.css('overflow-y','scroll');
 	issuesElement.append(leftPanelElement);
 	
+	var rightPanelElement = $('<issues_right_panel/>');
+	rightPanelElement.css('display','block');
+	rightPanelElement.css('background','purple');
+	rightPanelElement.css('position','absolute');
+	rightPanelElement.css('width','70%');
+	rightPanelElement.css('height','100%');
+	rightPanelElement.css('left','30%');
+	rightPanelElement.css('top',0);
+	rightPanelElement.css('overflow-y','scroll');
+	issuesElement.append(rightPanelElement);
 	
 	$('body').append(issuesElement);
 	

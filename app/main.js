@@ -29,17 +29,14 @@ function initDashboard(){
 
 function layout(){
 	navPosition = $('nav').position();
-	console.log(navPosition);
+	
 	
 	navHeight = navPosition.top + nav.navHeight();
 	
-	windowHeight = $('body').height();
-	windowWidth = $('body').width();
-	
-	console.log(navHeight);
-	console.log('window height:'+windowHeight);
+	windowHeight = $('nav').parent().height();
+	windowWidth = $('nav').parent().width();
+
 	$('issues').css('top',navHeight);
-	//$('issues').css('margin',0);
 	$('issues').css('height',windowHeight-navHeight);
 	$('issues').css('width',windowWidth);
 }

@@ -22,7 +22,6 @@ var buildNav = function() {
 		});
 		
 		liElement.appendTo(ulElement);
-		console.log(value);
 	});
 	
 	var divElement = $('<div/>');
