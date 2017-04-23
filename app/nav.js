@@ -2,6 +2,8 @@
 var buildNav = function() {
 
 	var ulElement = $('<ul/>');
+	// ulElement.css('padding',0);
+// 	ulElement.css('margin',0);
 	var ulItems = [
 		{name:'Issues',event:'issues'},
 		{name:'Dashboard',event:'dashboard'}
@@ -26,6 +28,7 @@ var buildNav = function() {
 	var divElement = $('<div/>');
 	ulElement.appendTo(divElement);
 	
+	
 	var btnElement = $('<button/>');
 	
 	
@@ -34,10 +37,20 @@ var buildNav = function() {
 	btnElement.appendTo(navElement);
 	divElement.appendTo(navElement);
 	
+	navElement.css('background','blue');
+	navElement.css('margin',0);
+	navElement.css('padding',0);
+	navElement.css('display','block');
+	navElement.css('overflow','auto');
 	
 	navElement.appendTo('body');
 	
 }
 
+var navHeight = function(){
+	var navElement = $('nav');
+	return navElement.outerHeight(true) ;
+}
 
 exports.buildNav = buildNav;
+exports.navHeight = navHeight;
